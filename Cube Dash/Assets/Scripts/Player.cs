@@ -5,18 +5,27 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Rigidbody rb;
-    public Vector3 move;
-    public float speed = 100f;
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
-        move = new Vector3(0, 0, 10);
+        
 
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.AddForce(move * speed * Time.deltaTime,ForceMode.Acceleration);
+
+        rb.AddForce(0, 0, speed * Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            rb.AddForce(speed  * Time.deltaTime, 0, 0);
+        }
+       if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            rb.AddForce(-speed * Time.deltaTime, 0, 0);
+        }
     }
 }
