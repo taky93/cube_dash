@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         move = new Vector3(0, 0, 10);
+
     }
 
     // Update is called once per frame
