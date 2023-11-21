@@ -6,12 +6,9 @@ public class Player : MonoBehaviour
 {
     public Rigidbody rb;
     public float speed;
+    public bool isJumping = false;
     // Start is called before the first frame update
-    void Start()
-    {
-        
 
-    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -26,6 +23,12 @@ public class Player : MonoBehaviour
        if (Input.GetKey(KeyCode.LeftArrow))
         {
             rb.AddForce(-speed * Time.deltaTime, 0, 0);
+        }
+        if (Input.GetKey(KeyCode.Space) && !isJumping)
+        {
+            isJumping = true;
+            rb.AddForce(0,speed * Time.deltaTime,0);
+            isJumping = false;
         }
     }
 }
