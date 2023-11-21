@@ -24,11 +24,6 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(-speed * Time.deltaTime, 0, 0);
         }
-        if (Input.GetKey(KeyCode.Space) && !isJumping)
-        {
-            isJumping = true;
-            rb.AddForce(0,speed * Time.deltaTime,0);
-            isJumping = false;
-        }
+
     }
 }
